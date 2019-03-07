@@ -197,9 +197,9 @@ def get_menu():
 
         dcc.Link('Feature Selection   ', href='/feature_selection', className="tab"),
 
-        dcc.Link('Training and Evaluation   ', href='/train_evaluate', className="tab"),
+        dcc.Link('Training and Evaluation   ', href='/train_evaluate', className="tab")
         
-        dcc.Link('Logistic regression', href='/logistic_reg', className="tab")
+#        dcc.Link('Logistic regression', href='/logistic_reg', className="tab")
 
     ], className="row ")
 
@@ -252,7 +252,7 @@ tr_evaluation = html.Div([  # page 5
             html.Br([]),
 
             dcc.Markdown('The answer to the question: _"What machine learning algorithm should I use?"_ is always: _"It depends.”_ It depends on the __size__, __quality__, and __nature__ of the data and on the type of prediction problem. Fraud detection is a __supervised__ learning problem, which means that all records are labelled - in this case as either Fraud or No Fraud.' ),
-            dcc.Markdown('In this Case Study we\'ll be using __a Random Forest__ Algorithm since they this is relatively easy to implement and understand, while being very powerful.'),
+            dcc.Markdown('In this case study we\'ll be using __a Random Forest__ Algorithm since they are relatively easy to implement and understand, while being very powerful.'),
             dcc.Markdown('Below we have set up a machine learning pipeline for you to train and evaluate different Random Forest models on the dataset.'),
             html.Br([]),
             html.Div([
@@ -314,9 +314,9 @@ tr_evaluation = html.Div([  # page 5
 
                     dcc.Markdown(
                         'After you developed a machine learning model for your predictive modelling problem, how do you know if the performance of the model is any good? \
-                        We\'ll use historical data to build the build, but in general, you want to develop a model that performs well on __new claims__ that come in, for example, next week. Therefore, you should build a __robus__ model, that __generalizes well__.'),
-                    dcc.Markdown('If you evaluate a model on the same data that you used to train and optimze the parameters on, then your model has __already "seen"__ that data through its parameters and the performance will be good on this dataset. However, this model has likely been overfit and will therefore __perform poorly on unseen data.__ '),
-                    dcc.Markdown('A popular technique that can be used to evaluate your model and test if it generalizes well is __Cross-Validation__. It is a popular method because it is simple to understand and because it generally results in a __less biased__ or __less (unfair) optimistic__ estimate of the model\'s performance than other methods, such as a simple train/test split.'),
+                        We\'ll use historical data to build the model, but in general, you want to develop a model that performs well on __new claims__ that come in, for example, next week. Therefore, you should build a __robust__ model, that __generalizes well__.'),
+                    dcc.Markdown('If you evaluate a model on the same data that you used to train and optimize the parameters on, then your model has __already "seen"__ that data through its parameters and the performance will be good on this dataset. However, this model has likely been overfit and will therefore __perform poorly on unseen data.__ '),
+                    dcc.Markdown('A popular technique that can be used to evaluate your model and test if it generalizes well is __Cross-Validation__. It is a popular method because it is simple to understand and because it generally results in a __less biased__ or __less (unfair) optimistic__ estimate of the model\'s performance than other methods, such as a simple train/test split. __We will use Cross-Validation to evaluate the performance of our model.__'),
                 ], className="twelve columns"),
 
             ], className="row "),
@@ -337,10 +337,10 @@ tr_evaluation = html.Div([  # page 5
                 html.Div([
 
                     dcc.Markdown('Overfitting a model on training data causes __poor model performance__.'),
-                    dcc.Markdown('Overfitting happens when a model learns the __detail and noise__ in the training data to the extent that it negatively impacts the performance of the model on new data. The problem is that the noise and details in the training data do not apply to new data and _negatively impact the models ability to generalize_. Generally, __complex__ models are likely to overfit and __too simple models__ don\'t have enough information to make predictions. Therfore, you have to __find a balance__ between a complex and simple model to find a that generalizes well to unseen data.'),
+                    dcc.Markdown('Overfitting happens when a model learns the __detail and noise__ in the training data to the extent that it negatively impacts the performance of the model on new data. The problem is that the noise and details in the training data do not apply to new data and _negatively impact the models ability to generalize_. Generally, __complex__ models are likely to overfit and __too simple models__ don\'t have enough information to make predictions. Therefore, you have to __find a balance__ between a complex and simple model to find one that generalizes well to unseen data.'),
                     html.Br([]),
 
-                    dcc.Markdown('Cross-Validation follows the following steps:'),
+                    dcc.Markdown('Cross-Validation consists of the following steps:'),
                     dcc.Markdown('1. Shuffle the dataset randomly.'),
                     dcc.Markdown('2. Split the dataset into k groups'),
                     html.Br([]),
@@ -349,7 +349,7 @@ tr_evaluation = html.Div([  # page 5
                     dcc.Markdown('4. Take the remaining groups as a training data set'),
                     dcc.Markdown('5. Fit a model on the training set and predict the instances in the test set'),
                     html.Br([]),
-                    dcc.Markdown('__In the end you have predicted all the instances in your data.__'),
+                    dcc.Markdown('__In the end you have a prediction for every instance in your data, by a model trained on other groups of data, and you can evaluate how your model performs on unseen data.__'),
                     html.Br([]),
                     dcc.Markdown('Important: Each observation in the data sample is assigned to an __individual group__ and __stays in that group__ for the duration of the procedure. This means that each sample is given the opportunity to be used in the hold out set 1 time and used to train the model k-1 times. Every time you re-train your model, it will follow the steps above.'),
 
@@ -385,8 +385,8 @@ tr_evaluation = html.Div([  # page 5
                 html.Br([]),
 
                     dcc.Markdown(
-                        'You can use the __dropdown__ and __sliders__ below to change the parameters of your Random Forest model. You can also choose the features that you want to train the model with. When you select number of features = 10. \
-                        Then the 10 most important features (based on the algorithmic feature selection from the previous tab) will be included in the model. After setting all the parameters you run the model by pushing the __submit parameters__ button. When your browser tabs notes __Updating...__ then the model is running. When your browser tab notes __Dash__ your model has finished training and the evaluation tables are updated.'),
+                        'You can use the __dropdown__ and __sliders__ below to change the parameters of your Random Forest model. You can also choose the features that you want to train the model with. When you select Number of features chosen = 10, \
+                        then the 10 most important features (based on the algorithmic feature selection from the previous page) will be included in the model. After setting all the parameters you run the model by pushing the __Run Model__ button. When your browser tabs notes __Updating...__ then the model is running. When your browser tab notes __Dash__ your model has finished training and the evaluation tables are updated.'),
                 ], className="twelve columns"),
 
             html.Br([]),
@@ -499,7 +499,7 @@ tr_evaluation = html.Div([  # page 5
             ], className="row "),
 
             html.Br([]),
-            html.Div([html.Button('Submit parameters',id='submit_reg')], className="four columns", style={'margin-left': 15,'margin-bottom': 15}),
+            html.Div([html.Button('Run Model',id='submit_reg')], className="four columns", style={'margin-left': 15,'margin-bottom': 15}),
             html.Br([]),
 
             html.Div([
@@ -531,11 +531,11 @@ tr_evaluation = html.Div([  # page 5
 
                 html.Br([]),
                 dcc.Markdown('The goal is to build a model that maximizes gain for the Fraud Department.'),
-                dcc.Markdown('The manager wants you to deliver N cases that have the highest chance on being fraudulent. With the slider below you can select the N records that your model predicted to have the highest chance on Fraud. It\'s up to you to find the number of cases that maximizes the result in table 4.'),
+                dcc.Markdown('The manager wants you to deliver N cases that have the highest probability of being fraudulent. With the slider below you can select the N records that your model predicted to have the highest probability of fraud. It\'s up to you to find the number of cases that maximizes the result in table 4.'),
 
                 html.Br([]),
                 dcc.Markdown(
-                    'Below we provided four tables which you can use to test your model\'s performance:'),
+                    'Below we provided four tables which you can use to test your model\'s performance. The predictions are made by your cross-validated random forest model.'),
                 html.Br([]),
                 html.Br([]),
                 html.Div([
@@ -570,7 +570,7 @@ tr_evaluation = html.Div([  # page 5
             html.Div([
 
                 html.Div([
-                    html.H5(["Table 1. N cases with highest chance on Fraud"],
+                    html.H5(["Table 1. N cases with highest probability of fraud"],
                             className="gs-header gs-table-header padded")
 
                 ], className="six columns"),
@@ -586,15 +586,15 @@ tr_evaluation = html.Div([  # page 5
             html.Div([
 
                 html.Div([
-                    dcc.Markdown("The table below shows the N records that your model predicted to have the highest chance on Fraud. The left columns shows for every records the change for No Fraud, the right column shows the chance for Fraud.")
+                    dcc.Markdown("The table below shows the N records that your model predicted to have the highest probability of fraud. The left column shows for every record the probability of no fraud, the right column shows the probability of fraud.")
 
                 ], className="six columns"),
 
                 html.Div([
-                    dcc.Markdown("The table below shows the classification results in a matrix. It shows the prediction result of all cases predicted by our models compared to the actual outcome.(Fraud – No Fraud)"),
+                    dcc.Markdown("The table below shows the classification results in a matrix. It shows the prediction result of all cases predicted by our models compared to the actual outcome. (Fraud – No Fraud)"),
                     dcc.Markdown('The following concepts can help you to evaluate your model\'s performance:'),
                     html.Br([]),
-                    dcc.Markdown('__Recall__ = percentage of total fraud cases that your models predicts to be fraud'),
+                    dcc.Markdown('__Recall__ = percentage of total fraud cases that your model correctly predicts to be fraud'),
                     dcc.Markdown('__Precision__ = percentage of predicted fraud cases that are actual fraud'),
                 ], className="six columns"),
 
@@ -665,7 +665,7 @@ tr_evaluation = html.Div([  # page 5
 
                 html.Div([
                     dcc.Markdown(
-                        "The table below compares the actual outcomes with the predicted for the __N cases selected__.")
+                        "The table below compares the actual outcomes with the predicted outcome for the __N cases selected__.")
                 ], className="six columns"),
 
                 html.Div([
@@ -865,7 +865,7 @@ def run_predict_datatable_cv2(n_clicks,predict_n, max_leaf_nodes, max_depth_slid
     dash.dependencies.Output('n_predict_text', 'children'),
     [dash.dependencies.Input('predict_n', 'value')])
 def update_slider_predict(value):
-    return 'Selected {} cases for fraud department'.format(str(value))
+    return 'Selected {} cases for the fraud department'.format(str(value))
 
 @app.callback(
     dash.dependencies.Output('DataTable_predict', 'rows'),
@@ -994,7 +994,7 @@ f_selection = html.Div([  # page 4
                 dcc.Markdown('This is a difficult question that may require deep knowledge of the problem domain. It is possible to automatically select those features in your data that are most useful or most relevant for the problem you are working on. This is a process called: _algorithmic feature selection_.'),
                 dcc.Markdown('Feature selection methods can be used to identify and remove __unneeded__, __irrelevant__ and __redundant__ attributes from data that do not contribute to the __accuracy__ of a predictive model or may in fact decrease the accuracy of the model. _Fewer attributes is desirable_ because it reduces the _complexity_ of the model. Complex models are more likley to overfit and harder to explain.'),
                 dcc.Markdown(
-                        'A  Random Forest Algorithm can be used to rank features based on how many information they contain. It can be computed how much each feature decreases the weighted impurity in a tree. For a forest, the impurity decrease from each feature can be averaged and the features are ranked according to this measure.'),
+                        'A  Random Forest Algorithm can be used to rank features based on how much information they contain. It can be computed how much each feature decreases the weighted impurity in a tree. For a forest, the impurity decrease from each feature can be averaged and the features are ranked according to this measure.'),
                 html.Br([]),
             ], className="tekstblok"),
 
@@ -1182,13 +1182,13 @@ data_analysis = html.Div([ # page 3
 
             html.Br([]),
             html.Br([]),
-            dcc.Markdown("The insurers administration system consists of two datasets. The first dataset (__Policy Data Set__) contains information about the policy and contains 14 columns and 12.335 records. Some of the variables are for example: The brand of the car, the policy holder's gender and age, the price, etc. This data is all gathered by the insurance company when you __subscribe to their policy.__ "),
+            dcc.Markdown("The insurer's administration system consists of two datasets. The first dataset (__Policy Data Set__) contains information about the policy and contains 14 columns and 12.335 records. Some variables are for example: The brand of the car, the policy holder's gender and age, the vehicle price, etc. This data is all gathered by the insurance company when you __subscribe to their policy.__ "),
             html.Br([]),
             dcc.Markdown("The second dataset (__Claims Data Set__) contains information about the claim and contains 18 columns and 12.335 entries. This data is gathered by the insurance company __at the moment a policy holder files a claim__. Some of the variables are for example: The date, the kind of area the accident took place, if a police report was filed, if witnesses were present, etc."),
 
             html.Br([]),
             dcc.Markdown(
-                "Select a dataset in the dropdown below to show the data in the table below. The dropdown below the datatable shows all column for the chosen dataset. The __left__ graph shows the __distribution__ of the chosen column in the dataset. The __right__ graph shows the __fraud percentage for every category__ in that column."),
+                "Select a dataset in the dropdown menu below to show the data in the table below. The dropdown menu below the datatable shows all column for the chosen dataset. The __left__ graph shows the __distribution__ of the chosen column in the dataset. The __right__ graph shows the __fraud percentage for every category__ in that column."),
             html.Br([]),
             dcc.Markdown("This step in the process is called __Exploratory Data Analysis__ (EDA). Exploratory Data Analysis (EDA) refers to using techniques to display data in such a way that interesting features will become apparent. Unlike classical methods which usually begin with an assumed model for the data, EDA techniques are used to encourage the data to __suggest models__ that might be appropriate and to __find features__ with potentially high predictive power."),
             html.Br([]),
@@ -1409,19 +1409,18 @@ ML_workflow = html.Div([  # page 2
         html.Br([]),
         html.Br([]),
 
-        dcc.Markdown("The machine learning workflow usually follows five steps:"),
+        dcc.Markdown("The machine learning workflow typically follows these five steps:"),
         html.Br([]),
-        dcc.Markdown("1. __Data Preparation__ Encompasses data cleaning and transformation in order to be able to work with the data. Often data has to be collected from multiple datasources. In this step the data is put into the right shape, format and quality. \
-                     Some of the operations which are frequently completed in this step are listed below."),
+        dcc.Markdown("1. __Data Preparation__ Encompasses data cleaning and transformation in order to be able to work with the data. Often data has to be collected from multiple datasources. In this step the data is put into the right shape, format and quality."),
         html.Br([]),
         dcc.Markdown("2. __Exploratory Data Analysis__ (EDA) refers to using techniques to display data in such a way that interesting features will become apparent. Unlike classical methods which usually begin with an assumed model for the data,  \
                      EDA techniques are used to encourage the data to suggest models that might be appropriate. The reason for the heavy reliance on graphics is that by its very nature the main role of EDA is to open-mindedly explore. We are usually looking for structures and unexpected insights."),
         html.Br([]),
         dcc.Markdown("3. __Feature selection__ refers to the selection of features that will be used in the model. The quality and quantity of the features in your model will largely influence the predictive power of your model."),
         html.Br([]),
-        dcc.Markdown("4. __Modelling / Training__ refers to choosing algorithms and building your predictive models"),
+        dcc.Markdown("4. __Modelling / Training__ refers to choosing algorithms and building your predictive models."),
         html.Br([]),
-        dcc.Markdown("5. __Evaluation__ refers to testing how well your models perform. Usually many different models are tried and evaluated (optimization feedback loop)"),
+        dcc.Markdown("5. __Evaluation__ refers to testing how well your models perform. Usually many different models are tried and evaluated (optimization feedback loop)."),
         html.Br([]),
     
         html.Img(src='data:image/png;base64,{}'.format(encoded_image.decode()),
@@ -1468,17 +1467,17 @@ overview = html.Div([  # page 1
                             className="gs-header gs-text-header padded"),
 
                     html.Br([]),
-                    dcc.Markdown("In this case we focus on a major issue for insurance companies: __Fraudulent Claims__. \
-                    Fraud, or criminal deception, is a costly problem for insurance companies and leads to large losses."),
+                    dcc.Markdown("In this case study we focus on a major issue for insurance companies: __Fraudulent Claims__. \
+                    Fraud, or criminal deception, is a costly problem for insurance companies and causes large losses."),
                     
                     dcc.Markdown("The cost of fraud is twofold:"),
-                    dcc.Markdown("_1. The direct cost of covering expenses for fraudulent claims_"),
+                    dcc.Markdown("_1. The direct cost of covering expenses for fraudulent claims._"),
                     dcc.Markdown("_2. The cost of fraud prevention and detection._"),
 
-                    dcc.Markdown("Furthermore, these fraudulent also have a social-economic impact since the insurance companies costs or fraud are passed on to the policy holders by means of a higher premium."),
+                    dcc.Markdown("Furthermore, these fraudulent claims also have a social-economic impact since the insurance companies costs for fraud are passed on to the policy holders by means of a higher premium."),
 
                     dcc.Markdown("Insurance companies want to keep their premiums as low as possible compared to competitors to \
-        attract new customers and increase marketshare. Therefore, fraud detection is a an important subject for insurance companies."),
+        attract new customers and increase marketshare. Therefore, fraud detection is important for insurance companies."),
 
                 ], className="six columns"),
 
@@ -1486,10 +1485,10 @@ overview = html.Div([  # page 1
                     html.H5(["2. About Fraud Detection"],
                             className="gs-header gs-table-header padded"),
                     html.Br([]),
-                    dcc.Markdown("Smart fraud detection systems on data have been around for while. \
-                    However, substantional improvements have been made in recents years with the introduction of new and improved Machine Learning Algorithms."),
+                    dcc.Markdown("Intelligent fraud detection systems that use data have been around for while. \
+                    However, substantial improvements have been made in recents years with the introduction of new and improved Machine Learning Algorithms."),
                     
-                    dcc.Markdown("Furthermore, insurers have become more and more data-driven organizations which collect large amounts of data. \
+                    dcc.Markdown("Furthermore, insurers are becoming data-driven organizations which collect large amounts of data. \
                     This data can be collected from their own systems, but can also be retrieved from open data sources or bought from data providers."),
                     
                     dcc.Markdown("The current challenge for insurers is to leverage the recent __advancements in machine learning__ and \
@@ -1507,19 +1506,19 @@ overview = html.Div([  # page 1
                             className="gs-header gs-text-header padded"),
                     html.Br([]),
 
-                dcc.Markdown("In this case we'll be working with two __publicly available datasets__ found on Oracle's website. \
+                dcc.Markdown("In this case study we'll be working with a __publicly available dataset__ found on Oracle's website. \
                 This dataset is often used in scientific papers in the fraud prediction domain. \
-                The datasets contains respectively policy and claims data from an car insurance company that contains both fraudulent and valid claims. \
+                The dataset contains policy and claims data from an car insurance company that contains both fraudulent and valid claims. \
                 The data is from an American car insurance company and dates from around the year 2000."),
 
-                dcc.Markdown("In this case you are going to develop a __prototype predictive machine learning model__ that can be embedded in a car insurer's fraud detection system."),
+                dcc.Markdown("In this case study you are going to develop a __prototype predictive machine learning model__ that can be embedded in a car insurer's fraud detection system."),
 
                 html.Br([]),
                 dcc.Markdown(" __In this case you will:__"),
-                dcc.Markdown("1. Be divided in teams of 3 - 4 "),
-                dcc.Markdown("2. Do some analysis / visualization to get familiar with the datasets "),
-                dcc.Markdown("3. Develop a model that, as accurately as possible, identifies fraudulent claims"),
-                dcc.Markdown("4. Optimize your detection model based on cost / gain per fraud case"),
+                dcc.Markdown("1. Be divided in teams of 3 - 4. "),
+                dcc.Markdown("2. Do some analysis / visualization to become familiar with the datasets. "),
+                dcc.Markdown("3. Develop a model that, as accurately as possible, identifies fraudulent claims."),
+                dcc.Markdown("4. Optimize your detection model based on cost / gain per fraud case."),
                 html.Br([]),
 
                 ], className="six columns"),
@@ -1600,7 +1599,7 @@ test2 = html.Div([  # page 5
             html.Br([]),
 
             dcc.Markdown('The answer to the question: _"What machine learning algorithm should I use?"_ is always: _"It depends.”_ It depends on the __size__, __quality__, and __nature__ of the data and on the type of prediction problem. Fraud detection is a __supervised__ learning problem, which means that all records are labelled - in this case as either Fraud or No Fraud.' ),
-            dcc.Markdown('In this Case Study we\'ll be using __Logistic Regression__ ....'),
+            dcc.Markdown('In this case study we\'ll be using __Logistic Regression__ ....'),
             dcc.Markdown('Below we have set up a pipeline for you to calculate and evaluate different Logistic Regression models on the dataset.'),
             html.Br([]),
             html.Div([
@@ -1910,10 +1909,10 @@ test2 = html.Div([  # page 5
                 ], className="six columns"),
 
                 html.Div([
-                    dcc.Markdown("The table below shows the classification results in a matrix. It shows the prediction result of all cases predicted by our models compared to the actual outcome.(Fraud – No Fraud)"),
+                    dcc.Markdown("The table below shows the classification results in a matrix. It shows the prediction result of all cases predicted by our models compared to the actual outcome. (Fraud – No Fraud)"),
                     dcc.Markdown('The following concepts can help you to evaluate your model\'s performance:'),
                     html.Br([]),
-                    dcc.Markdown('__Recall__ = percentage of total fraud cases that your models predicts to be fraud'),
+                    dcc.Markdown('__Recall__ = percentage of total fraud cases that your model correctly predicts to be fraud'),
                     dcc.Markdown('__Precision__ = percentage of predicted fraud cases that are actual fraud'),
                 ], className="six columns"),
 
