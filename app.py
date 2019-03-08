@@ -1508,7 +1508,7 @@ overview = html.Div([  # page 1
 
                 dcc.Markdown("In this case study we'll be working with a __publicly available dataset__ found on Oracle's website. \
                 This dataset is often used in scientific papers in the fraud prediction domain. \
-                The dataset contains policy and claims data from an car insurance company that contains both fraudulent and valid claims. \
+                The dataset contains policy and claims data from a car insurance company that contains both fraudulent and valid claims. \
                 The data is from an American car insurance company and dates from around the year 2000."),
 
                 dcc.Markdown("In this case study you are going to develop a __prototype predictive machine learning model__ that can be embedded in a car insurer's fraud detection system."),
