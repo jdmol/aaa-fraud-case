@@ -1544,7 +1544,7 @@ overview = html.Div([  # page 1
                         sortable=True,
                         editable=False,
                         filterable=False,
-                        columns=['Jaar', '2016']),
+                        columns=['Year', '2016']),
                 ], className="six columns"),
 
             ], className="row "),
