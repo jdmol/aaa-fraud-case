@@ -591,7 +591,7 @@ tr_evaluation = html.Div([  # page 5
                 ], className="six columns"),
 
                 html.Div([
-                    dcc.Markdown("The table below shows the classification results in a matrix. It shows the prediction result of all cases predicted by our models compared to the actual outcome. (Fraud – No Fraud)"),
+                    dcc.Markdown("The table below shows the classification results in a matrix. It shows the prediction result of all cases predicted by our models compared to the actual outcome. In this matrix we label a case as predicted fraud if the probability of fraud is higher than 50%."),
                     dcc.Markdown('The following concepts can help you to evaluate your model\'s performance:'),
                     html.Br([]),
                     dcc.Markdown('__Recall__ = percentage of total fraud cases that your model correctly predicts to be fraud'),
