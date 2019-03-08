@@ -109,7 +109,7 @@ for x in X.columns:
 # X_validation = pd.read_csv("X_validation.csv")
 #policy_data = pd.read_csv("policy_data.csv")
 
-trends_numbers = pd.read_excel("trend_excel_fraud.xlsx")
+trends_numbers = pd.read_excel("trend_excel_fraud.xlsx", converters={'Year':str,'2016':str})
 
 claims_input=[]
 for x in claim_data.columns:
@@ -591,7 +591,7 @@ tr_evaluation = html.Div([  # page 5
                 ], className="six columns"),
 
                 html.Div([
-                    dcc.Markdown("The table below shows the classification results in a matrix. It shows the prediction result of all cases predicted by our models compared to the actual outcome. In this matrix we label a case as predicted fraud if the probability of fraud is higher than 50%."),
+                    dcc.Markdown("The table below shows the classification results in a matrix. It shows the prediction result of all cases predicted by our models compared to the actual outcome. In this matrix we predict fraud if the probability of fraud is larger than 50% according to the model."),
                     dcc.Markdown('The following concepts can help you to evaluate your model\'s performance:'),
                     html.Br([]),
                     dcc.Markdown('__Recall__ = percentage of total fraud cases that your model correctly predicts to be fraud'),
@@ -1182,9 +1182,9 @@ data_analysis = html.Div([ # page 3
 
             html.Br([]),
             html.Br([]),
-            dcc.Markdown("The insurer's administration system consists of two datasets. The first dataset (__Policy Data Set__) contains information about the policy and contains 14 columns and 12.335 records. Some variables are for example: The brand of the car, the policy holder's gender and age, the vehicle price, etc. This data is all gathered by the insurance company when you __subscribe to their policy.__ "),
+            dcc.Markdown("The insurer's administration system consists of a policy dataset and a claim dataset. In this case study we have data of a total of 12.335 claims and the corresponding policies. The __Policy Data Set__ contains information about the policy and contains 14 columns. Some variables are for example: The brand of the car, the policy holder's gender and age, the vehicle price, etc. This data is all gathered by the insurance company when you __subscribe to their policy.__ "),
             html.Br([]),
-            dcc.Markdown("The second dataset (__Claims Data Set__) contains information about the claim and contains 18 columns and 12.335 entries. This data is gathered by the insurance company __at the moment a policy holder files a claim__. Some of the variables are for example: The date, the kind of area the accident took place, if a police report was filed, if witnesses were present, etc."),
+            dcc.Markdown("The __Claims Data Set__ contains information about the claim and contains 18 columns. This data is gathered by the insurance company __at the moment a policy holder files a claim__. Some of the variables are for example: The date, the kind of area the accident took place, if a police report was filed, if witnesses were present, etc."),
 
             html.Br([]),
             dcc.Markdown(
